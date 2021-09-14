@@ -14,7 +14,7 @@ import javax.validation.Validator
 @Controller("/api/alunos")
 class NovoAlunoController {
 
-    val logger: Logger = LoggerFactory.getLogger(this.javaClass)
+    val logger: Logger = LoggerFactory.getLogger(this.javaClass.name)
 
     @Inject
     lateinit var validator: Validator

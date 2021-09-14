@@ -40,6 +40,9 @@ dependencies {
 
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
 
+    // https://mvnrepository.com/artifact/org.postgresql/postgresql
+    implementation ("org.postgresql:postgresql:42.2.23")
+
 }
 
 

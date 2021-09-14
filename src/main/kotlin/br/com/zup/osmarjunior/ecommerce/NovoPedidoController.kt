@@ -15,7 +15,7 @@ import javax.validation.Valid
 @Controller("/api/pedidos")
 class NovoPedidoController {
 
-    val logger: Logger = LoggerFactory.getLogger(this.javaClass)
+    val logger: Logger = LoggerFactory.getLogger(this.javaClass.name)
 
     @Post
     fun cadastra(@Body @Valid request: NovoPedidoRequest): HttpResponse<Any> {
