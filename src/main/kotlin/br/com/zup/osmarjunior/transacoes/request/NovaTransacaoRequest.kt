@@ -5,7 +5,6 @@ import br.com.zup.osmarjunior.transacoes.model.Transacao
 import com.sun.istack.NotNull
 import io.micronaut.core.annotation.Introspected
 import java.math.BigDecimal
-import java.time.LocalDateTime
 import javax.persistence.EnumType
 import javax.persistence.Enumerated
 import javax.validation.constraints.NotBlank
