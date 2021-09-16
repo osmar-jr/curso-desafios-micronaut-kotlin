@@ -11,7 +11,7 @@ import kotlin.reflect.KClass
 @Target(AnnotationTarget.FIELD, AnnotationTarget.CONSTRUCTOR)
 @Retention(AnnotationRetention.RUNTIME)
 @Constraint(validatedBy = [UniqueValueValidator::class])
-annotation class UniqueValue(val klazz: KClass<*>,
+annotation class UniqueValue(val klazz: KClass<out Any>,
                              val attribute: String,
                              val message: String = "Value already exists.",
                              val groups: Array<KClass<Any>> = [],

@@ -7,7 +7,7 @@ jackson:
 
 datasources:
   default:
-    url: jdbc:postgresql://localhost:5432/desafios_mk
+    url: jdbc:postgresql://localhost:5434/desafios_mk
     driverClassName: org.postgresql.Driver
     username: postgres
     password: postgres

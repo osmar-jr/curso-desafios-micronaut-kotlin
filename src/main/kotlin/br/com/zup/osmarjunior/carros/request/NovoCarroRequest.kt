@@ -11,6 +11,7 @@ import javax.validation.constraints.Size
 data class NovoCarroRequest(
         @field:NotBlank
         @field:IsPlacaAutomovel
+        @field:UniqueValue(klazz = Carro::class, attribute = "placa")
         val placa: String,
 
         @field:NotBlank

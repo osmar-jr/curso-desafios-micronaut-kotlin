@@ -13,20 +13,27 @@ import kotlin.reflect.KClass
 
 @TransactionalAdvice
 @Singleton
-class UniqueValueValidator(constraintAnnotation: UniqueValue): ConstraintValidator<UniqueValue, Any> {
+class UniqueValueValidator: ConstraintValidator<UniqueValue, Any> {
 
-    private var klazz: KClass<*> = constraintAnnotation.klazz
-    private var attribute: String = constraintAnnotation.attribute
+    private lateinit var klazz: KClass<out Any>
+    private lateinit var attribute: String
 
     @PersistenceContext
     private lateinit var entityManager: EntityManager
 
-    override fun isValid(value: Any?,
+    override fun initialize(constraintAnnotation: UniqueValue) {
+        this.klazz = constraintAnnotation.klazz
+        this.attribute = constraintAnnotation.attribute
+    }
+
+    override fun isValid(value: Any,
                          annotationMetadata: AnnotationValue<UniqueValue>,
                          context: ConstraintValidatorContext): Boolean {
-        if (value == null) return true
-        val query: Query = entityManager.createQuery("select 1 from $klazz where $attribute =: $value")
-        val resultList: MutableList<Any?> = query.resultList
+
+        val query: Query = entityManager
+                .createQuery("select 1 from ${klazz.simpleName} where $attribute = :value")
+                .setParameter("value", value)
+        val resultList = query.resultList
 
         return resultList.isEmpty()
     }
