@@ -37,16 +37,9 @@ class TransacaoController(val transacaoRepository: TransacaoRepository) {
     ): HttpResponse<Any>{
         val daysAgo = LocalDateTime.now().minusDays(30)
 
-        val transacoes: Page<Transacao> = transacaoRepository
+        val transacoesResponsePage: Page<TransacaoDetalheResponse> = transacaoRepository
                 .findByClienteIdAndCriadaEmAfterOrderByCriadaEmDesc(clienteId, daysAgo, pageable)
 
-        val transacoesResponse: List<TransacaoDetalheResponse> = transacoes
-                .toMutableList()
-                .map { transacao -> TransacaoDetalheResponse(transacao) }
-
-        val sizePage: Long = transacoes.size.toLong()
-        val transacoesResponsePage: Page<TransacaoDetalheResponse> = Page
-                .of(transacoesResponse, pageable, sizePage)
 
         return HttpResponse.ok(transacoesResponsePage)
     }

@@ -7,6 +7,14 @@ plugins {
     id("org.jetbrains.kotlin.plugin.jpa") version "1.5.21"
 }
 
+apply plugin: "kotlin-jpa"
+apply plugin: "kotlin-allopen"
+
+allOpen{
+    annotation("io.micronaut.http.annotation.Controller")
+}
+
+
 version = "0.1"
 group = "br.com.zup.osmarjunior"
 

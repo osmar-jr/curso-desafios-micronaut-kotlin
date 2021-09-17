@@ -12,7 +12,6 @@ data class TransacaoDetalheResponse(
     val criadaEm: LocalDateTime
 ){
     constructor(transacao: Transacao) : this(transacao.descricao,
-            transacao.valor,
-            transacao.criadaEm) {
-    }
+        transacao.valor,
+        transacao.criadaEm)
 }
