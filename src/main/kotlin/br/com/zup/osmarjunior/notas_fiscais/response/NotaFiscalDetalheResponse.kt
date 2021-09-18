@@ -24,4 +24,9 @@ data class NotaFiscalDetalheResponse(
         itens = notaFiscal.itens.map { itemDeNotaFiscal -> ItemDeNotaDetalheResponse(itemDeNotaFiscal) }
     )
 
+    override fun toString(): String {
+        return "NotaFiscalDetalheResponse(numero='$numero', serie='$serie', data=$data, itens=$itens)"
+    }
+
+
 }

@@ -11,7 +11,7 @@ class PlacaValidator: ConstraintValidator<IsPlacaAutomovel, String>{
     override fun isValid(value: String?,
                          annotationMetadata: AnnotationValue<IsPlacaAutomovel>,
                          context: ConstraintValidatorContext): Boolean {
-        if (value.isNullOrBlank()) return false
+        if (value.isNullOrBlank()) return true
 
         return value.matches("[A-Z]{3}[0-9][0-9A-Z][0-9]{2}".toRegex())
     }

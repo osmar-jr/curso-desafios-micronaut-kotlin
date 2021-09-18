@@ -10,7 +10,7 @@ plugins {
 apply plugin: "kotlin-jpa"
 apply plugin: "kotlin-allopen"
 
-allOpen{
+allOpen {
     annotation("io.micronaut.http.annotation.Controller")
 }
 
@@ -49,8 +49,9 @@ dependencies {
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
 
     // https://mvnrepository.com/artifact/org.postgresql/postgresql
-    implementation ("org.postgresql:postgresql:42.2.23")
-    implementation("io.micronaut.beanvalidation:micronaut-hibernate-validator")
+    implementation("org.postgresql:postgresql:42.2.23")
+    implementation("io.micronaut.beanvalidation:micronaut-hibernate-validator:3.0.0")
+
 }
 
 

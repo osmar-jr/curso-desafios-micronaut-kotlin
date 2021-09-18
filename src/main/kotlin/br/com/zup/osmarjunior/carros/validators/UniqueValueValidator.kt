@@ -26,9 +26,11 @@ class UniqueValueValidator: ConstraintValidator<UniqueValue, Any> {
         this.attribute = constraintAnnotation.attribute
     }
 
-    override fun isValid(value: Any,
+    override fun isValid(value: Any?,
                          annotationMetadata: AnnotationValue<UniqueValue>,
                          context: ConstraintValidatorContext): Boolean {
+
+        if (value == null) return true
 
         val query: Query = entityManager
                 .createQuery("select 1 from ${klazz.simpleName} where $attribute = :value")

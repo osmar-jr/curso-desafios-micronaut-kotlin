@@ -14,4 +14,9 @@ data class TransacaoDetalheResponse(
     constructor(transacao: Transacao) : this(transacao.descricao,
         transacao.valor,
         transacao.criadaEm)
+
+    override fun toString(): String {
+        return "TransacaoDetalheResponse(descricao='$descricao', valor=$valor, criadaEm=$criadaEm)"
+    }
+
 }
